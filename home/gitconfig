@@ -1,0 +1,23 @@
+[user]
+        email = m.kohlbau@myopenfactory.com
+        name = Marc Kohlbau
+
+[push]
+        default = current
+
+[pull]
+        ff = only
+
+[alias]
+        backport = cherry-pick --edit
+        logs = log --show-signature
+        cp = "!f() { git mv $1 $2; git add $2; git commit -m \"copy $1 -> $2\"; git checkout HEAD~ $1; git add $1; git commit -m \"2. commit to copy $1 -> $2\";}; f"
+
+[diff]
+        submodule = log
+
+[init]
+        defaultBranch = main
+
+[include]
+    path = ~/.gitconfig.d/**
