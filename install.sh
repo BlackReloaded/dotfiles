@@ -178,4 +178,6 @@ case $1 in
         ;;
 esac
 
+cd ${DOTFILE_REPO} && git remote set-url origin git@github.com:BlackReloaded/dotfiles.git
+
 source ${HOME}/.bashrc
