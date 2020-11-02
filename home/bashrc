@@ -84,3 +84,4 @@ fi
 sourceDirectory "${LOCALBASHEXTRA}"
 sourceDirectory "${DOTFILE_REPO}/bash"
 
+eval "$(direnv hook bash)"
