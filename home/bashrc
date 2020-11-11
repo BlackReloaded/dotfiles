@@ -52,8 +52,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
+KUBE_PS1_SYMBOL_ENABLE=false
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='╭─${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \[\033[01;36m\]$(__git_ps1 "<%s>") $(kube_ps1)\n\[\033[00m\]╰─\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -83,5 +86,7 @@ fi
 
 sourceDirectory "${LOCALBASHEXTRA}"
 sourceDirectory "${DOTFILE_REPO}/bash"
+
+export GIT_EDITOR=vim
 
 eval "$(direnv hook bash)"

@@ -1,0 +1,1 @@
+alias ghp='gh pr create --reviewer tobiaskohlbau'

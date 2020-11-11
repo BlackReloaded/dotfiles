@@ -77,7 +77,7 @@ function setupBinary {
     echo "setup binary folder"
     linkFileOrFolder "${DOTFILE_REPO}/binary" "${HOME}/.bin"
     ensureLocalBashRCExtra
-    echo 'export PATH="$PATH:${HOME}/.bin/"' > ${LOCALBASHEXTRA}/binPath.sh
+    echo 'export PATH="${HOME}/.bin/:${PATH}"' > ${LOCALBASHEXTRA}/binPath.sh
 }
 
 function setupHomeDot {
@@ -98,7 +98,7 @@ function setupHomebrew {
             return 1;
        fi
        ensureLocalBashRCExtra
-       echo 'export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"' > ${LOCALBASHEXTRA}/brew.sh
+       echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"' > ${LOCALBASHEXTRA}/brew.sh
     fi
     source ${LOCALBASHEXTRA}/brew.sh
     output=$( brew install $( cat ${DOTFILE_REPO}/brew/packages.conf | tr '\n' ' ' ) 2>&1 )
