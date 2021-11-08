@@ -1,0 +1,6 @@
+[user]
+        email = m.kohlbau@myopenfactory.com
+        name = Marc Kohlbau
+        signingkey = 4EFAB0025E8EE76B
+[commit]
+        gpgsign = true

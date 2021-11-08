@@ -143,6 +143,10 @@ function setupApt {
     echo "ok"
 }
 
+function setupGit {
+    git config --global include.path "$DOTFILE_REPO/git/config"
+}
+
 
 cat << EOF > ${HOME}/.bashrc_variables
 export DOTFILE_REPO="${DOTFILE_REPO}"
@@ -167,6 +171,9 @@ case $1 in
         ;;
     private)
         setupPrivate
+        ;;
+    git)
+        setupGit
         ;;
     *)
         setupApt

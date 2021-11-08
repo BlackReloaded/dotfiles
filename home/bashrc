@@ -88,5 +88,9 @@ sourceDirectory "${LOCALBASHEXTRA}"
 sourceDirectory "${DOTFILE_REPO}/bash"
 
 export GIT_EDITOR=vim
+export EDITOR="code -w"
+export SCREENDIR=$HOME/.screen
 
 eval "$(direnv hook bash)"
+
+sshsyncwin

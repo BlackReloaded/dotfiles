@@ -1,6 +1,9 @@
 [user]
-        email = m.kohlbau@myopenfactory.com
+        email = marc@kohlbau.de
         name = Marc Kohlbau
+
+[includeIf "gitdir:**/myopenfactory/**"]
+	path = work_config
 
 [push]
         default = current
@@ -15,7 +18,7 @@
         backport = cherry-pick --edit
         logs = log --show-signature
         cp = "!f() { git mv $1 $2; git add $2; git commit -m \"copy $1 -> $2\"; git checkout HEAD~ $1; git add $1; git commit -m \"2. commit to copy $1 -> $2\";}; f"
-        branchCleanUp = !git branch --merged | grep -v main | xargs git branch -d
+        bc = !git branch --merged | grep -v main | xargs git branch -d
 
 [diff]
         submodule = log
@@ -23,5 +26,4 @@
 [init]
         defaultBranch = main
 
-[include]
-    path = ~/.gitconfig.d/**
+
